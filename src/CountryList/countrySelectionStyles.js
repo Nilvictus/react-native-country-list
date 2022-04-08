@@ -20,7 +20,6 @@ export default StyleSheet.create({
   },
   searchContainer: {
     flexDirection: 'row',
-    marginTop: '3%',
     height: '9%',
     backgroundColor: '#f4f4f4',
     alignItems: 'center',
@@ -31,6 +30,7 @@ export default StyleSheet.create({
     borderWidth: 0,
     borderRadius: 6,
     alignItems: 'center',
+    height: Platform.OS === "ios" ? '60%' : null,
     width: '80%',
   },
   searchIcon: {

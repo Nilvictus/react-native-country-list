@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, TextInput, Image, SectionList, Text, TouchableOpacity,
+  View, TextInput, Image, SectionList, Text, TouchableOpacity, KeyboardAvoidingView,
 } from 'react-native';
 import styles from './countrySelectionStyles';
 import { searchIcon, countrySelectionTick, countries } from './Constants';
@@ -17,6 +17,10 @@ const ItemView = (params) => {
     selected = <Image source={countrySelectionTick} style={styles.selectionTick} />;
   }
   return (
+    <KeyboardAvoidingView
+    behavior={Platform.OS == "ios" ? "padding" : "height"}
+    keyboardVerticalOffset={Platform.OS == "ios" ? 0 : 20}
+    enabled={Platform.OS === "ios" ? true : false}>
     <View style={styles.itemContainer}>
       <TouchableOpacity style={styles.itemTextContainer} onPress={() => params.action(params.item)}>
         <Image source={{ uri: params.item.flag }} style={styles.flag} />
@@ -27,6 +31,7 @@ const ItemView = (params) => {
       </TouchableOpacity>
       <View style={styles.itemSeparator} />
     </View>
+    </KeyboardAvoidingView>
   );
 };
 
