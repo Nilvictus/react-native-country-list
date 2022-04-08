@@ -17,10 +17,6 @@ const ItemView = (params) => {
     selected = <Image source={countrySelectionTick} style={styles.selectionTick} />;
   }
   return (
-    <KeyboardAvoidingView
-    behavior={Platform.OS == "ios" ? "padding" : "height"}
-    keyboardVerticalOffset={Platform.OS == "ios" ? 0 : 20}
-    enabled={Platform.OS === "ios" ? true : false}>
     <View style={styles.itemContainer}>
       <TouchableOpacity style={styles.itemTextContainer} onPress={() => params.action(params.item)}>
         <Image source={{ uri: params.item.flag }} style={styles.flag} />
@@ -31,7 +27,6 @@ const ItemView = (params) => {
       </TouchableOpacity>
       <View style={styles.itemSeparator} />
     </View>
-    </KeyboardAvoidingView>
   );
 };
 
@@ -88,7 +83,11 @@ export default class CountrySelection extends React.Component {
     const { sections } = this.state;
 
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS == "ios" ? null : "height"}
+      keyboardVerticalOffset={Platform.OS == "ios" ? 0 : 20}
+      enabled={Platform.OS === "ios" ? true : false}>
         
         <View style={styles.searchContainer}>
           <TouchableOpacity style={styles.iconBackButton} onPress={this.props.onPressBack}>
@@ -120,7 +119,8 @@ export default class CountrySelection extends React.Component {
           sections={sections}
           keyExtractor={(item, index) => item + index}
         />
-      </View>
+
+      </KeyboardAvoidingView>
     );
   }
 }

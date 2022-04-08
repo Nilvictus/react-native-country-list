@@ -30,7 +30,7 @@ export default StyleSheet.create({
     borderWidth: 0,
     borderRadius: 6,
     alignItems: 'center',
-    height: Platform.OS === "ios" ? '60%' : null,
+    height: Platform.OS === "ios" ? '70%' : null,
     width: '80%',
   },
   searchIcon: {
