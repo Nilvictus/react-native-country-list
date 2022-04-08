@@ -10,18 +10,28 @@ export default StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  iconBackButton: {
+    marginLeft: '3%',
+    marginRight: '2%',
+    height: '40%',
+    width: '10%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   searchContainer: {
-    height: 83,
+    flexDirection: 'row',
+    marginTop: '3%',
+    height: '9%',
     backgroundColor: '#f4f4f4',
+    alignItems: 'center',
   },
   searchView: {
-    flex: 1,
     flexDirection: 'row',
     backgroundColor: '#bdbdbd30',
     borderWidth: 0,
     borderRadius: 6,
-    margin: 20,
     alignItems: 'center',
+    width: '80%',
   },
   searchIcon: {
     width: 16,
@@ -78,4 +88,5 @@ export default StyleSheet.create({
   selectionView: {
     alignItems: 'flex-end',
   },
+  
 });

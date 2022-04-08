@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import styles from './countrySelectionStyles';
 import { searchIcon, countrySelectionTick, countries } from './Constants';
+import BackIcon from "./assets/images/BackIcon/back_black";
 
 /**
  * Item view
@@ -83,7 +84,11 @@ export default class CountrySelection extends React.Component {
 
     return (
       <View style={styles.container}>
+        
         <View style={styles.searchContainer}>
+          <TouchableOpacity style={styles.iconBackButton} onPress={this.props.onPressBack}>
+          <BackIcon />
+          </TouchableOpacity>
           <View style={styles.searchView}>
             <Image source={searchIcon} style={styles.searchIcon} />
             <TextInput
